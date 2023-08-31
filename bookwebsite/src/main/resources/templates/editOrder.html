@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <title>Edit Order</title>
+</head>
+<body>
+
+<!-- Main Navigation Bar Start -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-info">
+    <div class="container">
+        <a class="navbar-brand" href="./index.html">A World of Words: Bookstore Wonderland</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="./index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="books">Books</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="authors">Authors</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="categories">Categories</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="orders">Orders</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="users">Users</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<!-- Main Navigation Bar End -->
+
+
+<!-- Main Body of Page Start -->
+<div class="container">
+    <div class="row m-4">
+        <div class="col text-center border border-dark">
+            <h1 class="text-dark">EDIT ORDER</h1>
+        </div>
+    </div>
+
+    <div class="row m-4 border border-dark">
+        <div class="col-7 text-center m-3">
+            <form action="editOrder" method="POST">
+                <div class="form-group row">
+                    <label for="userId" class="col-sm-3 col-form-label">User:</label>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control" id="userId" name="userId"
+                               th:value="${order.user.firstName + ' ' + order.user.lastName}" readonly>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="bookId" class="col-sm-3 col-form-label">Book:</label>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control" id="bookId" name="bookId"
+                               th:value="${order.book.title}" readonly>
+                    </div>
+                </div>
+
+                <!-- Editable attributes -->
+                <div class="form-group row">
+                    <label for="total" class="col-sm-3 col-form-label">Total:</label>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control" id="total" name="total" th:value="${order.total}">
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label for="isPaid" class="col-sm-3 col-form-label">Payment Status:</label>
+                    <div class="col-sm-9">
+                        <select class="form-control" id="isPaid" name="isPaid">
+                            <option value="true" th:selected="${order.paid}">Paid</option>
+                            <option value="false" th:selected="${!order.paid}">Unpaid</option>
+                        </select>
+                    </div>
+                </div>
+
+                <input type="hidden" name="id" th:value="${order.id}" />
+                <button type="submit" class="btn btn-secondary">EDIT</button>
+                <button type="button" class="btn btn-secondary" onclick="window.location.href='/orders'">CANCEL</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+
+<!-- Footer Section Start -->
+<footer class="bg-info text-light text-center py-3 fixed-bottom">
+    <div class="container">
+        <p>&copy; 2023 Book Store. All rights reserved.</p>
+    </div>
+</footer>
+<!-- Footer Section End -->
+
+</body>
+</html>
