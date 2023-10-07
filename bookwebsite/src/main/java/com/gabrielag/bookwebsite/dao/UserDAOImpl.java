@@ -89,6 +89,11 @@ public class UserDAOImpl implements UserDao {
 
 
     // USER MAPPER
+    /**
+     * Mappers are responsible for mapping the result set from a database
+     * query to a specific object or entity.
+     * Encapsulates the mapping logic within the class.
+     */
     public static final class UserMapper implements RowMapper<User> {
 
         @Override

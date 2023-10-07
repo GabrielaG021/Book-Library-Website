@@ -1,5 +1,6 @@
 package com.gabrielag.bookwebsite.dto;
 
+import javax.validation.constraints.NotBlank;
 import java.util.Objects;
 
 /**
@@ -7,10 +8,23 @@ import java.util.Objects;
  * @author Gabriela Gutierrez
  */
 
+// Class represents blueprint for creating 'Author' objects
 public class Author {
+    /**
+     * Private variables = Instance variables.
+     * Instance Variables.: variable specific to a certain object.
+     * Use of encapsulation through these private instance variables
+     * to enclose the data within them.
+     * Control of Access or modification through public getter and setter methods
+     * to protect the integrity of data.
+     */
     private int id;
+    // @NotBlank is used as validation constraints for the class fields
+    @NotBlank(message = "Please input first name!")
     private String firstName;
+    @NotBlank(message = "Please input last name!")
     private String lastName;
+    @NotBlank(message = "Please input author bio!")
     private String description;
 
 
@@ -47,6 +61,8 @@ public class Author {
         this.description = description;
     }
 
+    // Enables comparison of two 'Author' objects for equality based on their attributes.
+    // This is essential when working with collection of objects.
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

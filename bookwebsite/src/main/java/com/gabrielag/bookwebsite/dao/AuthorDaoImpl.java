@@ -19,6 +19,12 @@ import java.util.List;
 
 @Repository
 public class AuthorDaoImpl implements AuthorDao {
+    /**
+     * Class that allows you to perform CRUD operations (Create, Read, Update, Delete) related to author data.
+     * includes adding authors, retrieving authors by ID, retrieving all authors, updating author information,
+     * and deleting authors.
+     * */
+    // Dependency Injection that simplified database operations
     @Autowired
     JdbcTemplate jdbc;
 
@@ -93,6 +99,11 @@ public class AuthorDaoImpl implements AuthorDao {
     }
 
     // Author Mapper
+    /**
+     * Mappers are responsible for mapping the result set from a database
+     * query to a specific object or entity.
+     * Encapsulates the mapping logic within the class.
+     * */
     public static final class AuthorMapper implements RowMapper<Author> {
 
         @Override

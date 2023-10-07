@@ -9,6 +9,15 @@ import java.util.Objects;
  */
 
 public class Order {
+    /**
+     * Private variables = Instance variables.
+     * Instance Variables.: variable specific to a certain object.
+     * Use of encapsulation through these private instance variables
+     * to enclose the data within them.
+     * Control of Access or modification through public getter and setter methods
+     * to protect the integrity of data.
+     */
+    // These different data types represent the information associated with an order.
     private int id;
     private LocalDateTime orderDate;
     private String total;
@@ -65,6 +74,8 @@ public class Order {
         this.book = book;
     }
 
+    // Enables comparison of two 'Order' objects for equality based on their attributes.
+    // This is essential when working with collection of objects.
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

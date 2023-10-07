@@ -10,17 +10,21 @@ import java.util.Objects;
  */
 
 public class User {
+    /**
+     * Private variables = Instance variables.
+     * Instance Variables.: variable specific to a certain object.
+     * Use of encapsulation through these private instance variables
+     * to enclose the data within them.
+     * Control of Access or modification through public getter and setter methods
+     * to protect the integrity of data.
+     */
     private int id;
-
     @NotBlank(message = "First name is required")
     private String firstName;
-
     @NotBlank(message = "Last name is required")
     private String lastName;
-
     @NotBlank(message = "Address is required")
     private String address;
-
     @Pattern(regexp = "\\d{10}", message = "Phone number must be a 10-digit number")
     private String phone;
 
@@ -64,6 +68,8 @@ public class User {
         this.phone = phone;
     }
 
+    // Enables comparison of two 'Order' objects for equality based on their attributes.
+    // This is essential when working with collection of objects.
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

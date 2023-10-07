@@ -1,5 +1,6 @@
 package com.gabrielag.bookwebsite.dto;
 
+import javax.validation.constraints.NotBlank;
 import java.util.List;
 import java.util.Objects;
 
@@ -8,11 +9,25 @@ import java.util.Objects;
  * @author Gabriela Gutierrez
  */
 
+// Class represents blueprint for creating 'Author' objects
 public class Book {
+    /**
+     * Private variables = Instance variables.
+     * Instance Variables.: variable specific to a certain object.
+     * Use of encapsulation through these private instance variables
+     * to enclose the data within them.
+     * Control of Access or modification through public getter and setter methods
+     * to protect the integrity of data.
+     */
     private int id;
+    // @NotBlank is used as validation constraints for the class fields
+    @NotBlank(message = "Please enter book title!")
     private String title;
+    @NotBlank(message = "Please enter book price!")
     private String price;
+    // Composition: 'Book' class has a reference to an 'Author' Object
     private Author author;
+    // Composition: 'Book' class has a reference to a list of 'Category' Objects
     private List<Category> categories;
 
     // Getters & Setters
@@ -56,6 +71,8 @@ public class Book {
         this.categories = categories;
     }
 
+    // Enables comparison of two 'Book' objects for equality based on their attributes.
+    // This is essential when working with collection of objects.
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

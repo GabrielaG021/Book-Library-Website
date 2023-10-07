@@ -1,5 +1,6 @@
 package com.gabrielag.bookwebsite.dto;
 
+import javax.validation.constraints.NotBlank;
 import java.util.List;
 import java.util.Objects;
 
@@ -9,8 +10,18 @@ import java.util.Objects;
  */
 
 public class Category {
+    /**
+     * Private variables = Instance variables.
+     * Instance Variables.: variable specific to a certain object.
+     * Use of encapsulation through these private instance variables
+     * to enclose the data within them.
+     * Control of Access or modification through public getter and setter methods
+     * to protect the integrity of data.
+     */
     private int id;
+    @NotBlank(message = "Please input name for category!")
     private String name;
+    // Composition: 'Category' class has a reference to a list of 'Book' Objects
     private List<Book> books;
 
     // Getters & Setters
@@ -38,6 +49,8 @@ public class Category {
         this.books = books;
     }
 
+    // Enables comparison of two 'Category' objects for equality based on their attributes.
+    // This is essential when working with collection of objects.
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

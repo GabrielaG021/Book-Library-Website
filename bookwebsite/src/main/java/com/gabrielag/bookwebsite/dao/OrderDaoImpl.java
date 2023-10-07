@@ -138,6 +138,11 @@ public class OrderDaoImpl implements OrderDao {
 
 
     // ORDER MAPPER
+    /**
+     * Mappers are responsible for mapping the result set from a database
+     * query to a specific object or entity.
+     * Encapsulates the mapping logic within the class.
+     */
     public static final class OrderMapper implements RowMapper<Order> {
 
         @Override
